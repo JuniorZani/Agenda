@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletronic Agenda</title>
+    <link rel="stylesheet" href="agenda.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/9e161f46b7.js" crossorigin="anonymous"></script>
+</head>
+<body onload="loadTable()">
+    <header>
+        <h1>Agenda Eletrônica</h1>
+    </header>
+
+    <section id="main-section">
+        <div id="list-title">
+            <div id="list-header">
+                <p>Lista de Contatos</p>
+            </div>
+            <div id="search-space">
+                <input type="text" id="search-input" placeholder="Digite o Nome" onclick="toggleAlphabeticalOrder()" >
+                <button class="buttons" id="search-button" onclick='searchContact()' ><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="buttons" id="add-button" onclick="activatePopUp()"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+        
+        <div>
+            <table id="contacts-table">
+            </table>
+        </div>
+    </section>
+
+    <section id="popup-section">
+        <h1 id="popup-header">Adicionar novo Contato</h1>
+        <p class="popup-labels">Nome</p>
+        <input class="popup-inputs" type="text" placeholder="Insira o Nome" name="contact-name" id="contact-name">
+        <p class="popup-labels">Telefone</p>
+        <input class="popup-inputs" type="number" placeholder="19 99999 9999" id="contact-phone"><br>
+        <p id="error-report"></p>
+        <button class="popup-buttons" id="cancel" onclick="deactivatePopUp()">Cancelar</button><button class="popup-buttons" id="add" onclick="addContact()">Adicionar</button>
+    </section>
+
+    <script src="agenda.js"></script>
+</body>
+</html>

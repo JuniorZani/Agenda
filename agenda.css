@@ -1,0 +1,171 @@
+/* MAIN DIV's STYLES */
+body{
+    background-color: #B7C8B5;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+header{
+    color: rgba(255, 255, 255, 0.85);
+    background-color: #A790A5;
+    text-align: center;
+    height: 82px;
+    padding: 1px;
+    width: 100%;
+}
+
+input:focus{
+    outline: none;
+}
+
+button{
+    background-color: #CFDCCD;
+}
+
+
+
+button:hover{
+    background-color: #938A91 !important;
+    cursor: pointer;
+}
+
+.buttons{
+    border: none;
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    margin: 10px 5px 5px 12px;
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/*MAIN SECTION STYLES*/
+#main-section{
+    border-radius: 5px;
+    background-color: #CFDCCD;
+    width: 800px;
+    margin: 1% 20%;
+    padding: 5px;
+    display: block;
+}
+
+
+#list-title{
+    border: none !important;
+    display: flex;
+    border: 0.5pt solid rgba(0, 0, 0, 0.158);
+}
+
+#list-header{
+    width: 70%;
+    text-align: center;
+    font-size: 14pt;
+}
+
+#search-space{
+    /* border: solid black; */
+    border-radius: 5px;
+    width: 25%;
+    margin: 1.2% 0 0 5%;
+    height: 45px;
+    padding: 0 5px;
+    display: flex;
+}
+
+#search-input{
+    text-align: center;
+    border-radius: 4px;
+    border: none;
+    background-color: #C3D2C1;
+    width: 129px;
+    height: 20px;
+    margin: 12px 0px;
+}
+
+
+#add-button, #thrash{
+    margin: 10px 5px 5px 0px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table :nth-child(odd) tr, table :nth-child(odd) button{
+    background-color: #B2B5B0;
+}
+
+table :nth-child(even) button{
+    background-color: #CFDCCD;
+}
+
+th{
+    background-color: #ACA3AA;
+}
+
+#table-title{
+    padding: 10px;
+    width: 60%;
+}
+
+/*POPUP STYLES*/
+#popup-section{
+    border: 1pt solid rgba(0, 0, 0, 0.253);
+    border-radius: 5px;
+    position: fixed;
+    width: 350px;
+    top: 15%;
+    left: 37%;
+    background-color: #CFDCCD;
+    display: none;
+}
+
+#popup-header{
+    text-align: center;
+    font-weight: normal;
+    font-size: 18pt;
+    margin-bottom: 25px;
+}
+
+#error-report{
+    text-align: center;
+    font-size: 10pt;
+    margin: 5px 0px 0px 0px;
+    color: red;
+}
+
+.popup-inputs{
+    height: 22px;
+    margin: 5px 25%;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+}
+
+.popup-labels{
+    margin: 15px 25% 0px 25%;
+    font-size: 13pt;
+}
+
+.popup-buttons{
+    color: rgb(0, 0, 0);
+    font-size: 10pt;
+    width: 75px;
+    height: 35px;
+    margin: 15px 0 20px 0;
+    border-radius: 10px;
+    border: none;
+    background-color: #B2B5B0; 
+}
+
+#cancel{
+    margin-left: 20%;
+}
+
+#add{
+    margin-left: 17%;
+}
