@@ -14,7 +14,7 @@ function loadTable(){
     } else{
         for(var i = 0; i < contacts.length; i++){
             document.getElementById('contacts-table').
-            innerHTML += `<tr><td>${contacts[i].id}${contacts[i].name}</td><td>${formatPhone(contacts[i].phone)}</td>
+            innerHTML += `<tr><td>${contacts[i].name}</td><td>${formatPhone(contacts[i].phone)}</td>
             <td><button class='buttons' id='thrash' onclick='removeContact(${contacts[i].id})'>
             <i class="fa-sharp fa-solid fa-trash"></i></button></td></tr>`
         }
