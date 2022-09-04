@@ -22,8 +22,6 @@ button{
     background-color: #CFDCCD;
 }
 
-
-
 button:hover{
     background-color: #938A91 !important;
     cursor: pointer;
@@ -65,7 +63,6 @@ input::-webkit-inner-spin-button {
 }
 
 #search-space{
-    /* border: solid black; */
     border-radius: 5px;
     width: 25%;
     margin: 1.2% 0 0 5%;

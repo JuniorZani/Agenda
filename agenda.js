@@ -1,22 +1,20 @@
 var id = 1;
 var contacts = [
     {
-        id: '0', 
-        name: "Alisson", 
+        id: '0',
+        name: "Alisson",
         phone: "19969692424"
     },
 ];
 
 function loadTable(){
-    contacts.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
     document.getElementById('contacts-table').innerHTML = "<th id='table-title'>Nome</th><th>Telefone</th><th>Opções</th>";
     if(contacts.length == 0){
         document.getElementById('contacts-table').innerHTML += "<tr><td colspan='3'>Nenhum contato encontrado</td></tr>";
     } else{
-        deactivatePopUp();
         for(var i = 0; i < contacts.length; i++){
             document.getElementById('contacts-table').
-            innerHTML += `<tr><td>${contacts[i].name}</td><td>${formatPhone(contacts[i].phone)}</td>
+            innerHTML += `<tr><td>${contacts[i].id}${contacts[i].name}</td><td>${formatPhone(contacts[i].phone)}</td>
             <td><button class='buttons' id='thrash' onclick='removeContact(${contacts[i].id})'>
             <i class="fa-sharp fa-solid fa-trash"></i></button></td></tr>`
         }
@@ -31,6 +29,8 @@ function deactivatePopUp(){
     document.getElementById('popup-section').style.display = 'none';
     document.getElementById('contact-name').value = '';
     document.getElementById('contact-phone').value = '';
+    document.getElementById('error-report').innerText = '';
+
 }
 
 function addContact(){
@@ -38,13 +38,14 @@ function addContact(){
     var phone = document.getElementById('contact-phone');
 
     if(name.value.length == 0 || phone.value.length != 11){
-        document.getElementById('error-report').innerText = 'Preencha os campos corretamente!'
+        document.getElementById('error-report').innerText = 'Preencha os campos corretamente!';
     } else{
         contacts.push({"id": `${id}`, "name": name.value, "phone": phone.value});
+        alfphabeticalOrder();
         loadTable();
         id++;
+        deactivatePopUp();
     }
-    contacts.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 }
 
 function removeContact(id){
@@ -59,9 +60,9 @@ function searchContact(){
     if(search.value.length == 0){
         loadTable();
     }else {
-        var contactPos = contacts.map(function(contacts) {return contacts.name; }).indexOf(search.value);
+        var contactPos = contacts.map(function(contacts) {return contacts.name}).indexOf(search.value);
         if(contactPos != -1){
-            table.innerHTML += `<tr><td>${contacts[contactPos].name}</td><td>${contacts[contactPos].phone}</td>
+            table.innerHTML += `<tr><td>${contacts[contactPos].name}</td><td>${formatPhone(contacts[contactPos].phone)}</td>
             <td><button class='buttons' id='thrash' onclick='removeContact(${contacts[contactPos].id})'><i class="fa-sharp fa-solid fa-trash"></i></button></td></tr>`
         } else{
             table.innerHTML += "<tr><td colspan='3'>Nenhum contato encontrado</td></tr>";
@@ -87,4 +88,11 @@ function formatPhone(phone){
         }
     }
     return formatedPhone;
+}
+
+function alfphabeticalOrder(){
+    contacts.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+    for(var i = 0; i < contacts.length; i++){
+        contacts[i].id = i;
+    }
 }
