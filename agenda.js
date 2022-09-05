@@ -50,6 +50,7 @@ function addContact(){
 
 function removeContact(id){
     contacts.splice(id, 1);
+    alfphabeticalOrder()
     loadTable();
 }
 
