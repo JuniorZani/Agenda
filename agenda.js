@@ -8,6 +8,7 @@ var contacts = [
 ];
 
 function loadTable(){
+
     document.getElementById('contacts-table').innerHTML = "<th id='table-title'>Nome</th><th>Telefone</th><th>Opções</th>";
     if(contacts.length == 0){
         document.getElementById('contacts-table').innerHTML += "<tr><td colspan='3'>Nenhum contato encontrado</td></tr>";
@@ -15,7 +16,7 @@ function loadTable(){
         for(var i = 0; i < contacts.length; i++){
             document.getElementById('contacts-table').
             innerHTML += `<tr><td>${contacts[i].name}</td><td>${formatPhone(contacts[i].phone)}</td>
-            <td><button class='buttons' id='thrash' onclick='removeContact(${contacts[i].id})'>
+            <td><button class='buttons' id='thrash' onclick='removeContact(\`${contacts[i].id}\`)'>
             <i class="fa-sharp fa-solid fa-trash"></i></button></td></tr>`
         }
     }
@@ -48,9 +49,9 @@ function addContact(){
     }
 }
 
-function removeContact(id){
-    contacts.splice(id, 1);
-    alfphabeticalOrder()
+function removeContact(contactId){
+    var contactPos = contacts.map(function(contacts) {return contacts.id}).indexOf(contactId);
+    contacts.splice(contactPos, 1);
     loadTable();
 }
 
@@ -93,7 +94,4 @@ function formatPhone(phone){
 
 function alfphabeticalOrder(){
     contacts.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
-    for(var i = 0; i < contacts.length; i++){
-        contacts[i].id = i;
-    }
 }
